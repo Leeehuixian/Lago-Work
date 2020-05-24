@@ -36,7 +36,7 @@ Promise.resolve('hello')
 	})
 	.then(res => {
 		let c = ' I love you'
-    return Promise.resolve(`${res}${c}`)
+    		return Promise.resolve(`${res}${c}`)
 	})
 	.then(res => {
 		console.log(res)
