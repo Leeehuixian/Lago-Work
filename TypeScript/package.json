@@ -1,0 +1,10 @@
+{
+  "name": "TypeScript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "typescript": "^3.9.3"
+  }
+}

@@ -1,0 +1,33 @@
+<!--
+ * @Author: LeeHuiXian
+ * @version: 
+ * @Date: 2020-05-29 23:07:02
+ * @LastEditors: LeeHuiXian
+ * @LastEditTime: 2020-05-29 23:11:35
+ * @FilePath: /FP/code/04-closure.html
+ * @Description: 
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function makeSalary(base) {
+      return function (performance) {
+        return base + performance 
+      }
+    }
+
+    const salaryLevel1 = makeSalary(12000)
+    const salaryLevel2 = makeSalary(15000)
+
+    console.log(salaryLevel1(2000))
+    console.log(salaryLevel1(3000))
+
+  </script>
+</body>
+</html>
