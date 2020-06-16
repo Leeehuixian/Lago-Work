@@ -310,7 +310,7 @@ console.log(f('world wild web'))
 
 
 
-	### 函子（Functor）
+### 函子（Functor）
 
 ````javascript
 class Container {
@@ -425,7 +425,7 @@ console.log(r)
 console.log(r._value())
 ````
 
-
+··
 
 
 
