@@ -987,7 +987,35 @@ fis.match('**/*.js', {
 
 
 
+### npm or yarn
 
+都是包管理工具
+
+yarn 可以自动找到node_modules/.bin下的可执行文件， npx也可以
+
+npx可以直接执行远端（线上）模块， 一次性使用的，可以用npx
+
+
+
+### 全局安装 or 本地安装
+
+全局安装模块：只有本地经常用到，而且与某一特定项目无关的工具或者模块
+
+脚手架类型的工具，建议使用npx/yarn init, 一次性使用
+
+其他所有的模块都应该安装到项目本地，也就是在package.json声明这个依赖
+
+输出所有环境变量：
+
+Mac： echo $PATH
+
+Windows: CMD set PATH
+
+找到命令的路径：
+
+Mac：which XXXX 
+
+Windows：where XXXX
 
 
 
