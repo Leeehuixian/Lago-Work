@@ -1,0 +1,52 @@
+<!--
+ * @Author: LeeHuiXian
+ * @version: 
+ * @Date: 2020-09-18 15:45:57
+ * @LastEditors: LeeHuiXian
+ * @LastEditTime: 2020-09-23 10:34:08
+ * @FilePath: /fed-e-task-03-01/minivue/index.html
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Vue</title>
+</head>
+<body>
+  <div id="app">
+    <h1>插值表达式</h1>
+    <h3>{{ msg }}</h3>
+    <h3>{{ count }}</h3>
+    <h1>v-text</h1>
+    <div v-text="msg"></div>
+    <h1>v-model</h1>
+    <input type="text" v-model="msg">
+    <input type="text" v-model="count">
+    <h1 v-html='html'></h1>
+    <h1 v-on:click="myClick">点击事件</h1>
+  </div>
+  <script src="js/dep.js"></script>
+  <script src="js/watcher.js"></script>
+  <script src="js/compiler.js"></script>
+  <script src="js/observer.js"></script>
+  <script src="js/vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'Hello world',
+        count: 100,
+        person: { name: 'zs' },
+        html: '<button style="color: pink; font-size: 26px">v-html</button>'
+      },
+      methods: {
+        myClick() {
+          alert('别戳我，我怕疼~')
+        }
+      }
+    })
+  </script>
+</body>
+</html>
