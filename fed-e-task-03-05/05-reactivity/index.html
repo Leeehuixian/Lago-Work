@@ -1,0 +1,31 @@
+<!--
+ * @Author: LeeHuiXian
+ * @version: 
+ * @Date: 2021-01-08 13:56:41
+ * @LastEditors: LeeHuiXian
+ * @LastEditTime: 2021-01-09 07:46:47
+ * @FilePath: /fed-e-task-03-05/05-reactivity/index.html
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module">
+    import { reactive } from './reactivity/index.js'
+
+    const obj = reactive({
+      name: 'zs',
+      age: 18
+    })
+    obj.name = 'lisi'
+    delete obj.age
+    console.log(obj)
+  </script>
+</body>
+</html>

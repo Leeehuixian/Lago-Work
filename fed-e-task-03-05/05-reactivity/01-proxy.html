@@ -1,0 +1,41 @@
+<!--
+ * @Author: LeeHuiXian
+ * @version: 
+ * @Date: 2021-01-10 09:07:01
+ * @LastEditors: LeeHuiXian
+ * @LastEditTime: 2021-01-10 09:11:38
+ * @FilePath: /fed-e-task-03-05/05-reactivity/01-proxy.html
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script type="module">
+    import { reactive, effect } from './reactivity/index.js'
+
+    const product = reactive({
+      name: 'iPhone',
+      price: 5000,
+      count: 3
+    })
+
+    let total = 0
+    effect(() => {
+      total = product.price * product.count
+    })
+    console.log(total) // 15000
+
+    product.price = 4000
+    console.log(total) // 12000
+
+    product.count = 1
+    console.log(total) // 4000
+
+  </script>
+</body>
+</html>

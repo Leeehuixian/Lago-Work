@@ -1,0 +1,64 @@
+<!--
+ * @Author: LeeHuiXian
+ * @version: 
+ * @Date: 2020-12-30 22:21:15
+ * @LastEditors: LeeHuiXian
+ * @LastEditTime: 2020-12-31 15:56:52
+ * @FilePath: /03-composition-api/index.html
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="" id="app">
+    x: {{ x }} <br>
+    y: {{ y }}
+  </div>
+  <script type="module">
+    import { createApp, reactive, onMounted, onUnmounted, toRefs } from './node_modules/vue/dist/vue.esm-browser.js' // 按需导入
+
+    function useMousePosition() {
+      const position = reactive({
+        x: 0,
+        y: 0
+      })
+
+      // 事件处理函数
+      const update = e => {
+        position.x = e.pageX
+        position.y = e.pageY
+      }
+
+      onMounted(() => {
+        window.addEventListener('mousemove', update)
+      })
+
+      onUnmounted(() => {
+        window.removeEventListener('mousemove', update)
+      })
+
+      return toRefs(position) // toRefs把响应式对象的所有属性也转化成响应式的
+    }
+
+    // createApp 的作用是创建一个vue对象，接收一个选项作为参数，也就是一个组件的选项，与Vue.js 2.x给Vue构造函数传入的选项一样，可以传入data，methods，created，components等
+    const app = createApp({
+      setup() {
+        const { x, y } = useMousePosition() // toRefs返回的对象，解构之后还是响应式数据
+
+        return {
+          x,
+          y
+        }
+      }
+    })
+
+    console.log(app)
+    app.mount('#app')
+  </script>
+</body>
+</html>

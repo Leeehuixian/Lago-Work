@@ -1,0 +1,38 @@
+<!--
+ * @Author: LeeHuiXian
+ * @version: 
+ * @Date: 2021-01-10 09:07:01
+ * @LastEditors: LeeHuiXian
+ * @LastEditTime: 2021-01-10 10:30:31
+ * @FilePath: /fed-e-task-03-05/05-reactivity/02-ref.html
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script type="module">
+    import { reactive, effect, ref } from './reactivity/index.js'
+
+    let price = ref(5000)
+    let count = ref(3)
+
+    let total = 0
+    effect(() => {
+      total = price.value * count.value
+    })
+    console.log(total) // 15000
+
+    price.value = 4000
+    console.log(total) // 12000
+
+    count.value = 1
+    console.log(total) // 4000
+
+  </script>
+</body>
+</html>
